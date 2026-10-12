@@ -21,5 +21,9 @@ node_modules/
 package.json
 package-lock.json
 
+# Python（推送脚本的编译缓存）
+__pycache__/
+*.pyc
+
 # 工具临时文件
 _github_ssh_pubkey.txt
