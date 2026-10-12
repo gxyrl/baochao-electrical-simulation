@@ -31,6 +31,11 @@ body {
 }
 
 /* ---- 工具栏 ---- */
+/* 注意：overflow-x 必须用 clip 而非 auto/hidden。
+   下拉菜单 (.group-menu) 是 .toolbar 的绝对定位溢出内容，
+   若 overflow-y 为 hidden 会被整个裁掉（菜单「看不见」的根因）。
+   而 overflow-x:auto 会强制 overflow-y 也变成 auto（CSS 规范），同样裁切。
+   只有 clip + visible 这一组合允许纵向溢出可见。 */
 .toolbar {
   height: var(--toolbar-height);
   background: #2d2d44;
@@ -38,10 +43,8 @@ body {
   padding: 0 16px; gap: 12px;
   flex-shrink: 0;
   border-bottom: 1px solid #3d3d54;
-  overflow-x: auto; overflow-y: hidden;
-  scrollbar-width: none;
+  overflow-x: clip; overflow-y: visible;
 }
-.toolbar::-webkit-scrollbar { display: none; }
 .toolbar .brand {
   font-size: 15px; font-weight: 600;
   letter-spacing: 1px; margin-right: 8px;
