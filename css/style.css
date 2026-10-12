@@ -435,6 +435,17 @@ body.panel-dragging .term-dot:hover { background: transparent !important; }
 .toolbar .author-info {
   margin-left: auto; flex-shrink: 0;
   white-space: nowrap;
+  /* 图标 + 单位名整体垂直居中；用 flex 而非基线对齐，避免图标偏上 */
+  display: inline-flex; align-items: center;
+}
+/* 右上角单位徽标（中国印钞造币）—— 位于单位名左侧 */
+.toolbar .author-info .com-logo {
+  display: block;
+  width: 26px; height: 26px;
+  margin-right: 7px;
+  flex-shrink: 0;
+  /* 极轻的红晕，让图标在深色工具栏上有一点浮起感 */
+  filter: drop-shadow(0 0 3px rgba(229, 5, 22, 0.45));
 }
 .toolbar .author-info .marquee-item {
   display: inline-block;
