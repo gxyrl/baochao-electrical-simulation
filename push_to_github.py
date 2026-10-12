@@ -23,6 +23,15 @@ import datetime
 import urllib.request
 import urllib.error
 
+# 统一输出编码为 UTF-8 —— 与「推送.bat」里的 chcp 65001 配合，
+# 避免中文在 cmd 窗口里变成乱码（否则会出现 Python 输出 UTF-8、
+# 而 cmd 自身的 pause 提示走 GBK 的混编局面）。
+try:
+    sys.stdout.reconfigure(encoding="utf-8")
+    sys.stderr.reconfigure(encoding="utf-8")
+except Exception:
+    pass
+
 # ==================== 配置 ====================
 REPO   = "gxyrl/baochao-electrical-simulation"
 BRANCH = "main"

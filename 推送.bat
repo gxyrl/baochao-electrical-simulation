@@ -5,10 +5,14 @@ rem ============================================================
 rem  Push this project to GitHub (one-click)
 rem  Just double-click this file.
 rem
-rem  NOTE: keep this .bat ASCII-only. This machine's cmd.exe
+rem  NOTE 1: keep this .bat ASCII-only. This machine's cmd.exe
 rem  cannot reliably parse .bat files that contain Chinese
 rem  characters (tested with UTF-8 BOM / UTF-8 no-BOM / GBK).
+rem  NOTE 2: chcp 65001 sets the console to UTF-8 so that the
+rem  Python script's Chinese output renders correctly.
 rem ============================================================
+
+chcp 65001 >nul
 
 set "PY="
 
